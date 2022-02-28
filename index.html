@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body draggable="false">
+    <div class="container">
+      <div class="panel">
+        <h1>Etch a Sketch</h1>
+        <div class="settings"><div class="reset">reset</div></div>
+      </div>
+      <div class="sketch"></div>
+    </div>
+    <script>
+      const sketch = document.querySelector(".sketch");
+      console.log(sketch);
+      function createGrid(length) {
+        for (let i = 0; i < length; i++) {
+          let row = document.createElement("div");
+          row.className = "row";
+          for (let j = 1; j <= length; j++) {
+            let cell = document.createElement("div");
+            cell.className = "gridsquare";
+            // cell.innerText = ".";
+            row.appendChild(cell);
+          }
+          sketch.appendChild(row);
+        }
+      }
+
+      createGrid(32);
+      const gridSquare = document.querySelectorAll(".gridsquare");
+      console.log(gridSquare);
+      gridSquare.forEach((grid) => {
+        grid.addEventListener("mouseover", () => {
+          if (event.buttons === 1) {
+            console.log(grid.id);
+            grid.classList.add("grid-color");
+          }
+        });
+      });
+
+      const reset = document.querySelector(".reset");
+      reset.addEventListener("click", () => {
+        myFunction();
+      });
+
+      function myFunction() {
+        var elems = document.querySelectorAll(".grid-color");
+        elems.forEach((item) => {
+          item.classList.remove("grid-color");
+        });
+        // e.target.className = "active";
+      }
+    </script>
+  </body>
+</html>
