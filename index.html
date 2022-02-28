@@ -11,12 +11,20 @@
     <div class="container">
       <div class="panel">
         <h1>Etch a Sketch</h1>
-        <div class="settings"><div class="reset">reset</div></div>
+        <div class="settings">
+          <div class="reset">reset</div>
+          <div class="size-setting">
+            <div class="size-button">16x16</div>
+            <div class="size-button">32x32</div>
+            <div class="size-button">64x64</div>
+          </div>
+        </div>
       </div>
       <div class="sketch"></div>
     </div>
     <script>
       const sketch = document.querySelector(".sketch");
+
       console.log(sketch);
       function createGrid(length) {
         for (let i = 0; i < length; i++) {
@@ -25,14 +33,13 @@
           for (let j = 1; j <= length; j++) {
             let cell = document.createElement("div");
             cell.className = "gridsquare";
-            // cell.innerText = ".";
             row.appendChild(cell);
           }
           sketch.appendChild(row);
         }
       }
-
       createGrid(32);
+
       const gridSquare = document.querySelectorAll(".gridsquare");
       console.log(gridSquare);
       gridSquare.forEach((grid) => {
@@ -54,7 +61,6 @@
         elems.forEach((item) => {
           item.classList.remove("grid-color");
         });
-        // e.target.className = "active";
       }
     </script>
   </body>
