@@ -12,20 +12,22 @@
       <div class="panel">
         <h1>Etch a Sketch</h1>
         <div class="settings">
-          <div class="reset">reset</div>
-          <div class="size-setting">
-            <div class="size-button">16x16</div>
-            <div class="size-button">32x32</div>
-            <div class="size-button">64x64</div>
-          </div>
+          <div class="reset">CLEAR</div>
         </div>
       </div>
       <div class="sketch"></div>
     </div>
+    <footer>
+      <p>Copyrights<sup>&copy;</sup> 2022. Developed by Ibrahim Akkaya</p>
+      <a href="https://github.com/ibrahimakkaya"
+        ><img src="./images/GitHub-Mark-32px.png" alt=""
+      /></a>
+    </footer>
     <script>
       const sketch = document.querySelector(".sketch");
 
-      console.log(sketch);
+      createGrid(32);
+
       function createGrid(length) {
         for (let i = 0; i < length; i++) {
           let row = document.createElement("div");
@@ -38,7 +40,6 @@
           sketch.appendChild(row);
         }
       }
-      createGrid(32);
 
       const gridSquare = document.querySelectorAll(".gridsquare");
       console.log(gridSquare);
